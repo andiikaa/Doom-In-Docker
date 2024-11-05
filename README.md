@@ -1,18 +1,19 @@
-# Containerized Doom 
+# Containerized Doom
 
-The `/doom` directory contains the actual web app that runs doom via JS-DOS on a webserver. Inside the `/doom` folder run:
+Note: in contrast to the [original repo](https://github.com/CallumHoughton18/Doom-In-Docker) this implementation needs the env `BASE_PATH` to be set, resulting in the app served at `host:port/$BASE_PATH`.
+
+Run with
+```bash
+docker compose up --build
 ```
-npm install
-npm start
+
+Doom should now be playable on http://127.0.0.1:8080/doom
+
+## Using prebuild container
+
+Prebuild image can be found at [andiikaa/doom](https://hub.docker.com/repository/docker/andiikaa/doom/tags).
+
+Run with
+```bash
+docker run -p 8080:8080 -e BASE_PATH=/doom docker.io/andiikaa/doom:0.0.1 
 ```
-
-
-Doom should now be playable on http://127.0.0.1:8080
-
-## Running as a Container
-
-The Doom web app is also containerized (because why not?) via Docker. The image is available on DockerHub [here](https://hub.docker.com/r/callumhoughton22/doom-in-docker). An example `docker-compose.yaml` is present in the root of the repository. 
-
-
-
-A working example is deployed [here](https://gamertime.callums-stuff.net) showcasing "DoOm aS a CoNtAiNeRiZeD WeB SeRvIcE"

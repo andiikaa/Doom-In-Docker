@@ -1,7 +1,13 @@
-FROM node:current-alpine
+FROM nginx:stable-alpine
+
+COPY doom/public /usr/share/nginx/html
+COPY nginx.conf.template /etc/nginx/conf.d/default.conf.template
 
 WORKDIR /app
-COPY ["./doom/package.json", "./doom/package-lock.json*", "./doom/public", "./"]
-RUN npm install
+COPY entrypoint.sh .
+
+RUN chmod +x entrypoint.sh
+
 EXPOSE 8080
-CMD [ "npm", "start" ]
+
+ENTRYPOINT [ "/app/entrypoint.sh" ]
