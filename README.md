@@ -9,9 +9,9 @@ docker compose up --build
 
 Doom should now be playable on http://127.0.0.1:8080/doom
 
-## Using prebuild container
+## Using Prebuilt Image
 
-Prebuild image can be found at [andiikaa/doom](https://hub.docker.com/repository/docker/andiikaa/doom/tags).
+Prebuilt image can be found at [andiikaa/doom](https://hub.docker.com/repository/docker/andiikaa/doom/tags).
 
 Run with
 ```bash
