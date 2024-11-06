@@ -42,7 +42,7 @@
             [sdl]
             autolock=true
         `);
-      fs.extract("doom-box.zip").then(() => {
+      fs.extract("$BASE_PATH/doom-box.zip").then(() => {
         main(["-conf", "dosbox.conf", "-c", "DOOM.BAT"]).then((ci) => {
             window.ci = ci;
         });

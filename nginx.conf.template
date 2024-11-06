@@ -1,9 +1,13 @@
  server {
-     listen 8080;
-     location $BASE_PATH {
-         alias /usr/share/nginx/html/$1;
-         index index.html index.htm;
+    listen 8080;
 
-         try_files $uri $uri/ /index.html =404;
-     }
+    location = $BASE_PATH {
+        return 301 http://$host$BASE_PATH/;
+    } 
+
+    location ~ ^$BASE_PATH(?:/(.*))?$ {
+        alias /usr/share/nginx/html/;
+        try_files $1 /$1 /index.html =404;
+    }
+
  }
