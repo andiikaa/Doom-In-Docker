@@ -6,7 +6,7 @@ services:
     ports: 
         - 8080:8080
     environment:
-        - BASE_PATH=/cell/doom
+        - BASE_PATH=/doom
     develop:
       watch:
         - action: rebuild
